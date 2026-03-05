@@ -1,0 +1,95 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body grid layout: header, nav, main, footer */
+body {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 100vh;
+  font-family: Georgia, serif;
+  color: #111;
+  background-color: white;
+}
+
+/* Header */
+header {
+  background-color: #3a3a3a; /* dark gray */
+  color: #eaeaea;
+  padding: 18px 22px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Navigation bar */
+nav {
+  background-color: black;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  padding: 0.5rem 0;
+  margin: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 12px 14px;
+  display: inline-block;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Main content area with aside */
+main {
+  display: grid;
+  grid-template-columns: 3fr 1fr; /* main content wider than aside */
+  background-color: #cfcfcf; /* light gray */
+  min-height: 340px;
+}
+
+/* Main content */
+main .content {
+  padding: 18px 22px;
+  border-right: 2px solid #bdbdbd; /* vertical divider */
+  background-color: #cfcfcf;
+  color: #111;
+}
+
+/* Aside content */
+main aside {
+  padding: 18px 22px;
+  background-color: white;
+  color: #111;
+}
+
+/* Footer */
+footer {
+  background-color: #3a3a3a; /* dark gray */
+  color: #eaeaea;
+  text-align: center;
+  padding: 18px 22px;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/* Responsive: stack main and aside on small screens */
+@media (max-width: 700px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+  main .content {
+    border-right: none;
+    border-bottom: 2px solid #bdbdbd;
+  }
+}
