@@ -15,6 +15,16 @@
     --font-h1h2: "Montserrat", sans-serif;
 }
 
+header {
+    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+main {
+    padding: 1rem;
+}
+
 #course-title {
     display: block;
     text-align: center;
@@ -57,22 +67,19 @@ body {
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 2.5rem;
-    margin: 2.5rem 0; /* space above and below heading */
+    margin: 2.5rem 0;
     color: var(--paragraph-text-color);
 }
 
 .cards-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
-    flex-wrap: wrap;
     justify-content: center;
     padding: 0 1rem 2rem 1rem;
 }
 
 .card {
-    flex: 1;
-    min-width: 300px;
-    max-width: 600px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     overflow: hidden;
