@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #1f5fa8;
+    --secondary-color: #414040;
+    --paragraph-text-color: #333;
+    --text-color: white;
+    --nav-color: rgb(231, 228, 228);
+    --background-color: white;
+    --accent-color: yellow;  
+    --font-h1h2: "Montserrat", sans-serif;
+}
+
+#course-title {
+    display: block;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+}
+
+body {
+    font-weight: 400;
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--background-color);
+    color: var(--paragraph-text-color);
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: var(--secondary-color);
+    font-family: var(--font-h1h2);
+    padding: 0.8rem;
+    font-weight: bold;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--nav-color);
+    margin: 0 2rem;
+}
+
+.navbar a:hover {
+    color: var(--primary-color);
+}
+
+#name-title {
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 2.5rem;
+    margin: 2.5rem 0; /* space above and below heading */
+    color: var(--paragraph-text-color);
+}
+
+.cards-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 1rem 2rem 1rem;
+}
+
+.card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 20px;
+}
+
+.card h2 {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px;
+    border-radius: 6px 6px 0 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.about-content {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.about-text {
+    flex: 2;
+}
+
+.about-image {
+    flex: 1;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+h3 {
+    text-align: center;
+    color: var(--paragraph-text-color);
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.underline {
+    display: block;
+    background-color: #858585;
+    height: 1px;
+    width: 50%;
+    margin: 0.5rem auto 1.5rem auto;
+}
+
+.country-content {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.country-flag {
+    flex: 1;
+    text-align: center;
+}
+
+.country-flag img {
+    border: 1px solid #333;
+    max-width: 100%;
+    height: auto;
+}
+
+.country-flag p {
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.country-text {
+    flex: 2;
+}
+
+.web-resources ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.web-resources ul li {
+    margin-bottom: 8px;
+}
+
+.web-resources ul li a {
+    color: #008B8B;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.web-resources ul li a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+}
