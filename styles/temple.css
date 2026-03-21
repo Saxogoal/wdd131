@@ -1,3 +1,8 @@
+:root {
+    --primary-color: #1f5fa8;
+    --text-color: white;
+    --font-text: "Montserrat", sans-serif;
+}
 main {
     display: grid;
     grid-template-columns: 1fr;
@@ -17,4 +22,13 @@ main {
 
 .temple-card img {
     width: 100%;
+}
+footer {
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    padding: 1rem 0;
 }
