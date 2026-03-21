@@ -1,4 +1,8 @@
 @media (min-width: 37.5em) {
+    nav {
+        display: flex;
+        align-items: center;
+    }
     nav ul {
         display: flex;
         gap: 20px;
@@ -7,9 +11,9 @@
         grid-template-columns: 1fr 1fr 1fr;
     }
     #menu {
-        display: none;  
+        display: none;
     }
     .navigation a {
-        display: block; 
+        display: block;
     }
 }

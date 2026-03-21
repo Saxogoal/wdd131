@@ -43,6 +43,10 @@ header h1 {
 .open a {
     display: block;
 }
+nav {
+    display: flex;
+    align-items: center;
+}
 nav ul {
     font-weight: bold;
     font-family: var(--font-text);
