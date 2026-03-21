@@ -75,29 +75,38 @@ const temples = [
 ];
 
 // Create temple cards
-function createTempleCards(temples) {
+function createTempleCards(templeList, heading = "Home") {
     const container = document.querySelector("main");
 
+    // update heading
+    document.querySelector("#gallery-heading").textContent = heading;
+
+    // remove existing cards
     const existingCards = container.querySelectorAll(".temple-card");
     existingCards.forEach(card => card.remove());
 
-    temples.forEach(temple => {
+    templeList.forEach((temple, index) => {
         const figure = document.createElement("figure");
         figure.classList.add("temple-card");
 
         const img = document.createElement("img");
         img.src = temple.imageUrl;
         img.alt = `The ${temple.templeName} Temple`;
-        img.width = 400;   
-        img.height = 300;  
-        img.loading = "lazy";
+        img.width = 400;
+        img.height = 300;
+
+        if (index === 0) {
+            img.fetchPriority = "high";
+            img.loading = "eager";
+        } else {
+            img.loading = "lazy";
+        }
 
         const figcaption = document.createElement("figcaption");
         figcaption.textContent = `The ${temple.templeName} Temple`;
 
         figure.appendChild(img);
         figure.appendChild(figcaption);
-
         container.appendChild(figure);
     });
 }
@@ -108,36 +117,39 @@ document.querySelectorAll("nav a").forEach(link => {
         e.preventDefault();
 
         const filterType = e.target.getAttribute("data-filter");
-
         let filteredTemples;
+        let heading;
 
         switch (filterType) {
             case "old":
                 filteredTemples = temples.filter(temple =>
                     Number(temple.dedicated.split(", ")[0]) < 1900);
+                heading = "Old Temples";
                 break;
             case "new":
                 filteredTemples = temples.filter(temple =>
                     Number(temple.dedicated.split(", ")[0]) >= 2000);
+                heading = "New Temples";
                 break;
             case "large":
                 filteredTemples = temples.filter(temple =>
                     temple.area > 90000);
+                heading = "Large Temples";
                 break;
             case "small":
                 filteredTemples = temples.filter(temple =>
                     temple.area < 10000);
+                heading = "Small Temples";
                 break;
             default:
                 filteredTemples = temples;
+                heading = "Home";
                 break;
         }
-        createTempleCards(filteredTemples);
+        createTempleCards(filteredTemples, heading);
     });
 });
 
 // Footer
 document.querySelector("#currentyear").textContent = new Date().getFullYear();
 document.querySelector("#lastModified").textContent = `Last Modification: ${document.lastModified}`;
-
-createTempleCards(temples);
