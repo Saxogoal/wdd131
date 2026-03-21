@@ -78,7 +78,6 @@ const temples = [
 function createTempleCards(temples) {
     const container = document.querySelector("main");
 
-    // remove existing cards but keep h2
     const existingCards = container.querySelectorAll(".temple-card");
     existingCards.forEach(card => card.remove());
 
@@ -112,19 +111,19 @@ document.querySelectorAll("nav a").forEach(link => {
 
         switch (filterType) {
             case "old":
-                filteredTemples = temples.filter(temple => 
+                filteredTemples = temples.filter(temple =>
                     Number(temple.dedicated.split(", ")[0]) < 1900);
                 break;
             case "new":
-                filteredTemples = temples.filter(temple => 
+                filteredTemples = temples.filter(temple =>
                     Number(temple.dedicated.split(", ")[0]) >= 2000);
                 break;
             case "large":
-                filteredTemples = temples.filter(temple => 
+                filteredTemples = temples.filter(temple =>
                     temple.area > 90000);
                 break;
             case "small":
-                filteredTemples = temples.filter(temple => 
+                filteredTemples = temples.filter(temple =>
                     temple.area < 10000);
                 break;
             default:
@@ -137,14 +136,6 @@ document.querySelectorAll("nav a").forEach(link => {
 
 // Footer
 document.querySelector("#currentyear").textContent = new Date().getFullYear();
-document.querySelector("#lastModified").textContent = `Last Modified: ${document.lastModified}`;
+document.querySelector("#lastModified").textContent = `Last Modification: ${document.lastModified}`;
 
-// Initial render
 createTempleCards(temples);
-const copyrightYearElement = document.getElementById("currentyear");
-const lastModifiedElement = document.getElementById("lastModified");
-
-const currentYear = new Date().getFullYear();
-copyrightYearElement.textContent = currentYear;
-
-lastModifiedElement.textContent = `Last Modification: ${document.lastModified}`;
