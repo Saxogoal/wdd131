@@ -9,6 +9,7 @@
     <meta name="author" content="Andre Piros">
 
     <link rel="stylesheet" href="styles/temple.css">
+    <link rel="stylesheet" href="styles/temple-large.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,20 +18,21 @@
     <script defer src="scripts/temple.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Temple Album</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Old</a></li>
-                <li><a href="#">New</a></li>
-                <li><a href="#">Large</a></li>
-                <li><a href="#">Small</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <h1>Temple Album</h1>
+    <nav>
+        <button id="menu">menu</button>
+        <ul class="navigation">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Old</a></li>
+            <li><a href="#">New</a></li>
+            <li><a href="#">Large</a></li>
+            <li><a href="#">Small</a></li>
+        </ul>
+    </nav>
+</header>
     <main>
-        <h1>Home</h1>
+        <h2>Home</h2>
         <figure class="temple-card">
             <img src="images/temples/brasilia_temple.webp" alt="The Brasilia Temple">
             <figcaption>The Brasilia Temple</figcaption>
