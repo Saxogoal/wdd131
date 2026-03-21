@@ -1,0 +1,20 @@
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+/* larger view - 3 columns */
+@media (min-width: 37.5em) {
+    main {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.temple-card {
+    text-align: center;
+}
+
+.temple-card img {
+    width: 100%;
+}
