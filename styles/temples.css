@@ -85,7 +85,7 @@ main h2 {
     transform: scale(1.02);
 }
 .temple-card img {
-    width: 100%;
+    width: 80%;
     height: 12rem;
     object-fit: cover;
 }
