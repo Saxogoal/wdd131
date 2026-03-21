@@ -4,8 +4,8 @@
     box-sizing: border-box;
 }
 :root {
-    --primary-color: #1f5fa8;
-    --text-color: white;
+    --primary-color: #174a85;
+    --text-color: #ffffff;
     --font-text: "Montserrat", sans-serif;
 }
 header {
