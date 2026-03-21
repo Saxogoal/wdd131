@@ -31,6 +31,7 @@ header h1 {
 }
 #menu::before {
     content: "☰";
+    padding: 1rem;
 }
 #menu.open::before {
     content: "❎";
