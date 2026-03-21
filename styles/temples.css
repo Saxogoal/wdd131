@@ -82,12 +82,15 @@ main h2 {
     padding: 20px;
     text-align: center;
     border-radius: 6px;
-    transform: scale(1.02);
 }
 .temple-card img {
-    width: 80%;
+    width: 100%;
     height: 12rem;
     object-fit: cover;
+}
+.temple-card:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
 }
 footer {
     text-align: center;

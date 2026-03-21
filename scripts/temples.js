@@ -88,6 +88,8 @@ function createTempleCards(temples) {
         const img = document.createElement("img");
         img.src = temple.imageUrl;
         img.alt = `The ${temple.templeName} Temple`;
+        img.width = 400;   
+        img.height = 300;  
         img.loading = "lazy";
 
         const figcaption = document.createElement("figcaption");
