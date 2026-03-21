@@ -34,7 +34,8 @@ header h1 {
     padding: 1rem;
 }
 #menu.open::before {
-    content: "❎";
+    content: "X";
+    padding: 1rem;    
 }
 .navigation a {
     display: none;
