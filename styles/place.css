@@ -3,31 +3,34 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root {
+    --primary-color: #f8f9fa;
+    --background-color: #009c3b;
+    --border-table-color: #FFCC29;
+    --text-color: #212529;
+}
 
 body {
     font-family: sans-serif;
 }
 
-/* Header */
 header {
     text-align: center;
     padding: 1rem;
-    border: 1px solid #ccc;
+    background-color: var(--background-color);
+    color: var(--primary-color);
 }
 
-/* Main */
 main {
     display: flex;
     flex-direction: column;
 }
 
-/* Hero image */
 #hero img {
     width: 100%;
     height: auto;
 }
 
-/* Data section */
 #data {
     border: 1px solid #ccc;
     padding: 1rem;
@@ -38,7 +41,6 @@ main {
     margin-bottom: 1rem;
 }
 
-/* Weather section */
 #weather {
     border: 1px solid #ccc;
     padding: 1rem;
@@ -54,7 +56,6 @@ main {
     margin-bottom: 1rem;
 }
 
-/* Shared table styles */
 table {
     width: 100%;
 }
@@ -66,10 +67,10 @@ td.label {
     width: 50%;
 }
 
-/* Footer */
 footer {
     text-align: center;
     padding: 1rem;
-    border-top: 1px solid #ccc;
     font-size: 0.9rem;
+    background-color: var(--background-color);
+    color: var(--primary-color);
 }
