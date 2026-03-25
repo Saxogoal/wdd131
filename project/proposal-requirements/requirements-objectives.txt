@@ -1,0 +1,38 @@
+WDD 131 Requirements and Objectives for the W06 Project
+
+=====================================Objective============================================
+
+The objective of the website project is to support the following course learning outcomes:
+
+1.Develop responsive web pages that follow best practices and use valid HTML and CSS.
+2.Demonstrate proficiency with JavaScript language syntax.
+3.Use JavaScript to respond to events and dynamically modify HTML.
+4.Demonstrate the traits of a professional by fulfilling assignments and meeting deadlines.
+
+======================================Requirements=========================================
+
+This project must be your own original design and development. You may not consult with or work with any other individual or group. 
+The content and subject matter come from your topic proposal, and the site must be complete with no placeholders. 
+You may reference images and text from other sources, and you must cite these on a separate references page.
+
+Host your website project in your wdd131 GitHub Pages repository in the project folder you created for your siteplan.html document.
+
+The website must consist of at least three (3) pages with consistent navigation and visual theme suited to your target audience.
+The site must have significant and relevant content that supports your website is purpose as outlined in your site plan.
+The design must support accessibility, usability, visual appeal, and design principles.
+Organize the pages with valid, standards-based HTML markup.
+Apply valid CSS styling without unused or duplicate declarations and rules.
+Make the site responsive for mobile (portrait and landscape) and larger screens while maintaining PARC design principles.
+All images must be optimized.
+Use a lazy loading technique to support progressive design.
+Use an HTML form that meets the standards presented in the course.
+Include dynamic elements created with JavaScript that demonstrate the following:
+✔ Have more than one function,
+✔ Include DOM interaction including selecting an element, modifying it, and listening for and reacting to events,
+✔ Use conditional branching,
+✔ Use objects, arrays, and array methods,
+✔ Exclusively use template literals when building strings for output
+✔ Use localStorage.
+Ensure there are no spelling or grammatical errors.
+Complete the project by the due date.
+

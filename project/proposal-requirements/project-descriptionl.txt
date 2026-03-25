@@ -1,0 +1,47 @@
+WDD 131 Description and Proposal for the W06 Project
+
+================================Description============================================
+
+1. What is the Subject of your website?
+
+A personal video game backlog tracker. A tool that combines informational content about 
+gaming with a practical tracker that helps gamers organize their game library by recording
+which games they want to play, are currently playing, or have already completed.
+
+
+2. What is going to be the content of your website?
+
+The website will contain 3 pages
+
+- Home page. An introduction to the tracker, informational content explaining what a game 
+ backlog is, why managing it matters, tips for deciding what to play next, 
+ and a brief guide on how to use the site.
+
+- Backlog Tracker page. The core functional tool, featuring a form to add games 
+ (title, genre, platform, and status), a dynamic list of saved games, and filter/sort 
+ controls organized by status or genre. All data persists between visits using localStorage.
+
+- References page. This page will list all external sources used throughout the site, including 
+ images, text, and any other borrowed content, properly cited to give credit to their original authors.
+
+3. Why  have you chosen this Subject?
+
+I chose this subject because video games are an interest of min and a backlog tracker is a 
+very useful tool I will actually use it myself. Every gamer accumulates more games than
+they can play at once, and having a personal tracker makes it easy to organize and 
+decide what to play next. Beyond its functional side, the site also serves an informational 
+purpose — teaching visitors about backlog management strategies and game genres — which 
+gives it meaningful content and a clear purpose. This combination of informational and 
+functional design also gives me an opportunity to apply the JavaScript 
+concepts learned in the course, such as storing data, handling user input, and dynamically 
+updating the page, with the purpose of facilitating the user's gaming experience.
+
+==================================Proposal==============================================
+
+Technical Overview
+
+The project will be built with valid HTML, CSS, and JavaScript, fully responsive for mobile 
+and larger screens following PARC design principles. All images will be optimized with lazy 
+loading. JavaScript will cover multiple functions, DOM manipulation, event listeners, 
+conditional logic, objects, arrays, array methods, template literals, and localStorage. 
+The site will be hosted on GitHub Pages under the wdd131 repository.
