@@ -42,11 +42,14 @@ main {
 
 #hero {
     position: relative;
+    min-height: 500px;
 }
 
 #hero img {
     width: 100%;
+    height: auto;
     display: block;
+    aspect-ratio: 721 / 480;
 }
 
 #data, #weather {
@@ -56,6 +59,7 @@ main {
     padding: 1rem;
     max-width: 420px;
     margin: 1rem auto;
+    min-height: 150px;
 }
 
 #data h2, #weather h2 {
