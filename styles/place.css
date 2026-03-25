@@ -72,6 +72,14 @@ main {
     margin-bottom: 0.5rem;
     min-height: 1.5em;
 }
+#weather img {
+    display: block;
+    margin: 0 auto 0.5rem;
+}
+.weather-icon {
+    display: block;
+    margin: 0 auto 0.5rem;
+}
 
 table {
     width: 100%;

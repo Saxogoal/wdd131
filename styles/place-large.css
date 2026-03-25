@@ -19,4 +19,8 @@
     #weather h2::after {
         content: " ⛅";
     }
+
+    #weather .weather-icon {
+        display: none;
+    }
 }
