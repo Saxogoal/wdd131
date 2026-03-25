@@ -17,8 +17,11 @@
     --border: #ddd;
 }
 
-body {
+html {
     font-family: var(--font-text);
+}
+
+body {
     background-color: var(--primary-color);
     color: var(--text-color);
 }
@@ -34,6 +37,7 @@ header {
 header h1 {
     font-family: var(--font-heading);
     text-transform: uppercase;
+    min-height: 1.5em;
 }
 
 main {
@@ -59,13 +63,14 @@ main {
     padding: 1rem;
     max-width: 420px;
     margin: 1rem auto;
-    min-height: 160px;
+    min-height: 180px;
 }
 
 #data h2, #weather h2 {
     text-align: center;
     border-bottom: 2px solid var(--border-table-color);
     margin-bottom: 0.5rem;
+    min-height: 1.5em;
 }
 
 table {
@@ -90,4 +95,5 @@ footer {
     color: white;
     text-align: center;
     padding: 1rem;
+    min-height: 60px;
 }
