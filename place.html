@@ -7,15 +7,23 @@
     <meta name="description" content="A page dedicated to my country, providing information about its culture, history, and attractions.">
     <meta name="author" content="Andre Piros">
 
-    <link rel="stylesheet" href="styles/place.css">
-    <link rel="stylesheet" href="styles/place-large.css">
+    <link rel="preload" href="styles/place.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="styles/place-large.css" as="style" onload="this.rel='stylesheet'">
+
+    <noscript>
+        <link rel="stylesheet" href="styles/place.css">
+        <link rel="stylesheet" href="styles/place-large.css">
+    </noscript>
 
     <script defer src="scripts/place.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link rel="stylesheet" 
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap">
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;700&display=swap" 
+        media="print" 
+        onload="this.media='all'">
 </head>
 
 <body>
@@ -27,8 +35,15 @@
 
         <section id="hero">
             <picture>
-                <source srcset="images/hero-large.webp" media="(min-width: 640px)">
-                <img src="images/hero-small.webp" alt="São Paulo Wildlife">
+                <source 
+                    srcset="images/hero-small.webp 600w, images/hero-large.webp 1200w"
+                    sizes="(min-width: 640px) 100vw, 100vw">
+                <img 
+                    src="images/hero-small.webp" 
+                    alt="São Paulo Wildlife"
+                    loading="eager"
+                    fetchpriority="high"
+                    decoding="async">
             </picture>
 
             <section id="data">
@@ -63,5 +78,6 @@
         <p>&copy;🏀<span id="currentyear"></span> André Piros 🏀 São Paulo, Brazil</p>
         <p id="lastModified"></p>
     </footer>
+
 </body>
 </html>
