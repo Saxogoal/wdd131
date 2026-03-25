@@ -4,31 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WDD 131 | Country Page</title>
-    <meta name="description" content="A page dedicated to my country, providing information about its culture, history, and attractions.">
+    <meta name="description" content="A page dedicated to my Country, providing information about it's data and weather.">
     <meta name="author" content="Andre Piros">
 
-    <link rel="preload" href="styles/place.css" as="style" onload="this.rel='stylesheet'">
-    <link rel="preload" href="styles/place-large.css" as="style" onload="this.rel='stylesheet'">
-
-    <noscript>
-        <link rel="stylesheet" href="styles/place.css">
-        <link rel="stylesheet" href="styles/place-large.css">
-    </noscript>
+    <link rel="stylesheet" href="styles/place.css">
+    <link rel="stylesheet" href="styles/place-large.css" media="(min-width: 640px)">
 
     <script defer src="scripts/place.js"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link rel="stylesheet" 
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;700&display=swap" 
-        media="print" 
-        onload="this.media='all'">
 </head>
 
 <body>
     <header>
-        <h1>São Paulo</h1>
+        <h1>Brazil</h1>
     </header>
 
     <main>
@@ -41,15 +28,15 @@
                 <img 
                     src="images/hero-small.webp" 
                     alt="São Paulo Wildlife"
-                    loading="eager"
                     fetchpriority="high"
+                    loading="eager"
                     decoding="async">
             </picture>
 
             <section id="data">
                 <h2>Data</h2>
                 <table>
-                    <tr><td class="label">Area:</td><td class="value">248,219 km²</td></tr>
+                    <tr><td class="label">Area:</td><td class="value"></td></tr>
                     <tr><td class="label">Population:</td><td class="value">46,081,801</td></tr>
                     <tr><td class="label">Capital:</td><td class="value">Brasília</td></tr>
                     <tr><td class="label">Language:</td><td class="value">Portuguese</td></tr>
@@ -78,6 +65,5 @@
         <p>&copy;🏀<span id="currentyear"></span> André Piros 🏀 São Paulo, Brazil</p>
         <p id="lastModified"></p>
     </footer>
-
 </body>
 </html>

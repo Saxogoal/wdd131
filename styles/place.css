@@ -6,13 +6,13 @@
 
 :root {
     --primary-color: #f8f9fa;
-    --background-color: #002776;
+    --background-color: #009c3b;
     --border-table-color: #FFCC29;
-    --text-color: #000000;
+    --text-color: #212529;
     --radius: 8px;
     --shadow: 0 2px 12px rgba(0, 39, 118, 0.10);
-    --font-text: "Roboto", sans-serif;
-    --font-heading: "Montserrat", sans-serif;
+    --font-text: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-heading: system-ui, sans-serif;
     --white: #ffffff;
     --border: #ddd;
 }
@@ -83,7 +83,7 @@ td.value {
 
 footer {
     background-color: var(--background-color);
-    color: var(--primary-color);
+    color: white;
     text-align: center;
     padding: 1rem;
 }
