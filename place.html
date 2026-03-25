@@ -36,10 +36,14 @@
         <section id="hero">
             <picture>
                 <source 
-                    srcset="images/hero-small.webp 600w, images/hero-large.webp 1200w"
-                    sizes="(min-width: 640px) 100vw, 100vw">
+                    srcset="images/hero-small.webp 600w, images/hero-large.webp 800w"
+                    sizes="(max-width: 768px) 100vw, 720px">
                 <img 
-                    src="images/hero-small.webp" 
+                    src="images/hero-large.webp" 
+                    srcset="images/hero-small.webp 600w, images/hero-large.webp 800w"
+                    sizes="(max-width: 768px) 100vw, 720px"
+                    width="721"
+                    height="480"
                     alt="São Paulo Wildlife"
                     loading="eager"
                     fetchpriority="high"
