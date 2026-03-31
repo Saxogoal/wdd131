@@ -97,7 +97,7 @@ main {
     font-family: var(--font-text);
     font-weight: bold;
     color: black;
-    gap: 2rem;
+    margin-bottom: 1rem;
 }
 
 .res-grid {
