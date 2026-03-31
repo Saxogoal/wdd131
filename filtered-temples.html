@@ -7,12 +7,10 @@
     <meta name="description" content="A collection of images showcasing various temples, including the Curitiba Temple, the São Paulo Temple, and the Rome Italy Temple.">
     <meta name="author" content="Andre Piros">
 
-    <!-- mobile first CSS order -->
-    <link rel="stylesheet" href="styles/temples.css">
-    <link rel="stylesheet" href="styles/temples-large.css">
+    <link rel="stylesheet" href="styles/filtered-temples.css">
+    <link rel="stylesheet" href="styles/filtered-temples-large.css">
 
-    <!-- deferred JS -->
-    <script defer src="scripts/temples.js"></script>
+    <script defer src="scripts/filtered-temples.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,63 +26,20 @@
 <header>
     <h1>Temple Album</h1>
     <nav>
-        <button id="menu"></button>
+        <button id="menu" aria-label="Menu"></button>
         <ul class="navigation">
-            <li><a href="#" data-filter="home">Home</a></li>
             <li><a href="#" data-filter="old">Old</a></li>
             <li><a href="#" data-filter="new">New</a></li>
             <li><a href="#" data-filter="large">Large</a></li>
             <li><a href="#" data-filter="small">Small</a></li>
+            <li><a href="#" data-filter="home">Home</a></li>
         </ul>
     </nav>
 </header>
 <main>
     <h2 id="gallery-heading">Home</h2>
-    <figure class="temple-card">
-        <img src="images/temples/brasilia_temple.webp" alt="The Brasilia Temple"
-            width="400" height="300" fetchpriority="high">
-        <figcaption>The Brasilia Temple</figcaption>
-    </figure>
-    <figure class="temple-card">
-        <img src="images/temples/curitiba_temple.webp" alt="The Curitiba Temple"
-            width="400" height="300" loading="lazy">
-        <figcaption>The Curitiba Temple</figcaption>
-    </figure>
-    <figure class="temple-card">
-        <img src="images/temples/sp_temple.webp" alt="The São Paulo Temple"
-            width="400" height="300" loading="lazy">
-        <figcaption>The São Paulo Temple</figcaption>
-    </figure>
-    <figure class="temple-card">
-        <img src="images/temples/rome_temple.webp" alt="The Rome Italy Temple"
-            width="400" height="300" loading="lazy">
-        <figcaption>The Rome Italy Temple</figcaption>
-    </figure>
-    <figure class="temple-card">
-        <img src="images/temples/salt_lake_temple.webp" alt="The Salt Lake City Temple"
-            width="400" height="300" loading="lazy">
-        <figcaption>The Salt Lake City Temple</figcaption>
-    </figure>
-    <figure class="temple-card">
-        <img src="images/temples/payson_temple.webp" alt="The Payson Temple"
-            width="400" height="300" loading="lazy">
-        <figcaption>The Payson Temple</figcaption>
-    </figure>
-    <figure class="temple-card">
-        <img src="images/temples/gj_colorado_temple.webp" alt="The Grand Junction Colorado Temple"
-            width="400" height="300" loading="lazy">
-        <figcaption>The Grand Junction Colorado Temple</figcaption>
-    </figure>
-    <figure class="temple-card">
-        <img src="images/temples/manti_temple.webp" alt="The Manti Temple"
-            width="400" height="300" loading="lazy">
-        <figcaption>The Manti Temple</figcaption>
-    </figure>
-    <figure class="temple-card">
-        <img src="images/temples/mesa_ar_temple.webp" alt="The Mesa Arizona Temple"
-            width="400" height="300" loading="lazy">
-        <figcaption>The Mesa Arizona Temple</figcaption>
-    </figure>
+    <div class = "res-grid">
+    </div>
 </main>
 <footer>
     <p>&copy;🏀<span id="currentyear"></span> André Piros 🏀 São Paulo, Brazil</p>

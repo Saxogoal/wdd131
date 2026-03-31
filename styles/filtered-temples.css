@@ -45,6 +45,7 @@ header h1 {
 }
 nav {
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 nav ul {
@@ -69,29 +70,53 @@ main {
     gap: 1rem;
     padding: 2rem;
 }
-main h2 {
+
+#gallery-heading {
     grid-column: 1 / -1;  
     text-align: center;
     font-family: var(--font-text);
     font-weight: bold;
     color: black;
-    padding: 2rem 0;
+    gap: 2rem;
 }
-.temple-card {
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section h3 {
+    margin-top: 0.5rem;
+}
+
+section p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+.res-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
     background-color: white;
-    padding: 20px;
+    padding: 1rem;
     text-align: center;
-    border-radius: 6px;
+    border-radius: 1rem;
 }
-.temple-card img {
-    width: 100%;
-    height: 12rem;
+.res-grid img {
     object-fit: cover;
+    border-radius: 0.5rem; 
 }
-.temple-card:hover {
+.res-grid section:hover {
     transform: scale(1.02);
     transition: transform 0.3s ease;
 }
+.card h3, .card p {
+    font-family: var(--font-text);
+    color: black;
+}
+.card h3 {
+    font-weight: bold;
+}
+
 footer {
     text-align: center;
     font-family: var(--font-text);
