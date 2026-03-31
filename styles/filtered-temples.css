@@ -103,7 +103,7 @@ main {
 .res-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+    gap: 1.5rem;
     padding: 1rem;
     border-radius: 1rem;
     justify-items: center;
@@ -114,6 +114,7 @@ main {
     flex-direction: column;
     align-items: center;
     border-radius: 1rem;
+    border: #c5c5c5 solid 1px;
     background-color: white;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     padding: 1rem;
