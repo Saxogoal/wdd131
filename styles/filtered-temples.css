@@ -103,7 +103,8 @@ section p {
 }
 .res-grid img {
     object-fit: cover;
-    border-radius: 0.5rem; 
+    padding: 0.5rem; 
+    border-radius: 1rem;
 }
 .res-grid section:hover {
     transform: scale(1.02);
