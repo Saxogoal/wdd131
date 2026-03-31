@@ -20,6 +20,9 @@ header {
 header h1 {
     padding: 1rem;
 }
+body {
+    font-family: "Montserrat", Arial, sans-serif;
+}
 #menu {
     font-size: 1.5rem;
     border: 0;
@@ -103,6 +106,7 @@ main {
 .res-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    min-height: 600px;
     gap: 1.5rem;
     padding: 1rem;
     border-radius: 1rem;
@@ -128,6 +132,9 @@ main {
 }
 
 .res-grid img {
+    width: 100%;
+    height: 250px;
+    aspect-ratio: 400 / 250;
     object-fit: cover;
     border-radius: 1rem;
 }

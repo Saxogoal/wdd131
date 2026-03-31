@@ -110,6 +110,7 @@ function createTempleCards(filteredTemples) {
         img.setAttribute("src", temple.imageUrl);
         img.setAttribute("alt", `${temple.templeName} Temple`);
         img.setAttribute("loading", "lazy");
+        img.setAttribute("decoding", "async");
         img.width = 400;
         img.height = 250;
 
