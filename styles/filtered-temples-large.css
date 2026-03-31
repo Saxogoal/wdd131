@@ -20,10 +20,6 @@
         background-color: white;
         padding: 1rem;
     }
-
-    main {
-        display: block;
-    }
     #menu {
         display: none;
     }
