@@ -15,6 +15,7 @@ header {
     padding: 1rem;
     background-color: var(--primary-color);
     color: var(--text-color);
+    position: relative;
 }
 header h1 {
     padding: 1rem;
@@ -24,25 +25,43 @@ header h1 {
     border: 0;
     background: none;
     color: var(--text-color);
-    position: fixed;
+    position: absolute;
     top: 1rem;
     right: 1rem;
     cursor: pointer;
+    z-index: 1000;
 }
 #menu::before {
     content: "☰";
-    padding: 1rem;
 }
 #menu.open::before {
-    content: "X";
-    padding: 1rem;    
+    content: "✖";
 }
-.navigation a {
+
+.navigation {
     display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--primary-color);
+    position: absolute;
+    top: 100%;
+    left: 0;
 }
-.open a {
+
+.navigation.open {
+    display: flex;
+}
+
+.navigation li {
+    text-align: center;
+    padding: 0.75rem 0;
+}
+
+.navigation a {
     display: block;
+    color: var(--text-color);
 }
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -62,6 +81,7 @@ nav a:hover {
     color: rgb(22, 182, 22);
     text-decoration: underline;
 }
+
 main {
     max-width: 1200px;
     margin: 0 auto;
@@ -79,43 +99,47 @@ main {
     color: black;
     gap: 2rem;
 }
-section {
+
+.res-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    justify-items: center;
+}
+
+.res-grid section {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-section h3 {
-    margin-top: 0.5rem;
+    border-radius: 1rem;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 1rem;
+    max-width: 400px;
+    width: 100%;
 }
 
-section p {
-    margin: 0;
-    font-size: 0.9rem;
-}
-.res-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    background-color: white;
-    padding: 1rem;
-    text-align: center;
-    border-radius: 1rem;
-}
-.res-grid img {
-    object-fit: cover;
-    padding: 0.5rem; 
-    border-radius: 1rem;
-}
 .res-grid section:hover {
     transform: scale(1.02);
     transition: transform 0.3s ease;
 }
-.card h3, .card p {
-    font-family: var(--font-text);
-    color: black;
+
+.res-grid img {
+    object-fit: cover;
+    border-radius: 1rem;
 }
-.card h3 {
-    font-weight: bold;
+
+.res-grid h3 {
+    margin-top: 0.5rem;
+    font-family: var(--font-text);
+}
+
+.res-grid p {
+    margin: 0;
+    font-size: 0.9rem;
+    font-family: var(--font-text);
 }
 
 footer {
