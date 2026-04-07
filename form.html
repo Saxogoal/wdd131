@@ -29,7 +29,39 @@
 </header>
 
 <main>
-    <form method="get" action="review.html"
+    <form method="get" action="review.html" class="wf1">
+        <fieldset>
+            <div>Product Name</div>
+            <label></label><select id="productName" name="productName" required>
+                <option value="" disabled selected> Choose a Product ...</option>
+            </select>
+
+            <div>Overall Rating</div>
+            <label><input type="radio" id="rating1" name="rating" value="1" required> &#9734;</label>
+            <label><input type="radio" id="rating2" name="rating" value="2" required> &#9734;&#9734;</label>
+            <label><input type="radio" id="rating3" name="rating" value="3" required> &#9734;&#9734;&#9734;</label>
+            <label><input type="radio" id="rating4" name="rating" value="4" required> &#9734;&#9734;&#9734;&#9734;</label>
+            <label><input type="radio" id="rating5" name="rating" value="5" required> &#9734;&#9734;&#9734;&#9734;&#9734;</label>
+
+            <label for="date">Date of Installation</label>
+            <input type="date" id="date" name="date" required>
+
+            <div>Which features did you find useful in the product?</div>
+            <p>(Check all that apply)</p>
+            <label><input type="checkbox" id="feature1" name="Durability" value="yes"> Durability</label>
+            <label><input type="checkbox" id="feature2" name="Ease of Use" value="yes"> Ease of Use</label>
+            <label><input type="checkbox" id="feature3" name="Performance" value="yes"> Performance</label>
+            <label><input type="checkbox" id="feature4" name="Design" value="yes"> Design</label>
+
+            <div>Written Review<span id="optional"></span></div>
+            <label><input type="text" textarea id="review" name="review"></label>
+
+            <div>Your Name<span id="optional"></span></div>
+            <label><input type="text" id="username" name="username"></label>
+
+            <input type="submit" value="Submit My Review">
+        </fieldset>
+    </form>
 </main>
 <footer>
     <p>&copy; 🏀 <span id="currentyear"></span> André Piros 🏀 São Paulo, Brazil</p>
