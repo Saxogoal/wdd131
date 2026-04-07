@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --primary-color: #0f3660;
+    --text-color: #ffffff;
+    --font-text: "Montserrat", sans-serif;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    position: relative;
+}
+header h1 {
+    padding: 1rem;
+}
+body {
+    font-family: "Montserrat", Arial, sans-serif;
+}
+
+footer {
+    text-align: center;
+    font-family: var(--font-text);
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+}
