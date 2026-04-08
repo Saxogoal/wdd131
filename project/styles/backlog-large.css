@@ -1,0 +1,30 @@
+@media only screen and (min-width: 64rem) {
+    .nav-logo img {
+        height: 70px;
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .grid-container {
+        /* This forces exactly 2 columns for the 2x2 look */
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* main stays centered and limited, header/footer stay full width */
+    main {
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    header, footer {
+        max-width: none;
+        width: 100%;
+    }
+}

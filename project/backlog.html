@@ -23,17 +23,17 @@
 </head>
 <body>
 <header>
+    <a href="https://saxogoal.github.io/wdd131/project/home.html" class="nav-logo">
+        <img alt="Game Backlog Tracker Logo" src="images/projecticon.png" width="70">
+    </a>
+
     <h1>Backlog Tracker</h1>
-    <nav>        
-        <div class="navbar">
-            <a href="https://saxogoal.github.io/wdd131/project/home.html" class="nav-logo">
-                <img alt="Game Backlog Tracker Logo" src="images/projecticon.png">
-            </a>
-            <div class="nav-links">
-                <a href="home.html" class="item-animate">Home</a>
-                <a href="backlog.html" class="item-animate">Backlog Tracker</a>
-                <a href="references.html" class="item-animate">References</a>
-            </div>
+
+    <nav>
+        <div class="nav-links">
+            <a href="home.html" class="item-animate">Home</a>
+            <a href="backlog.html" class="item-animate">Tracker</a>
+            <a href="references.html" class="item-animate">References</a>
         </div>
     </nav>
 </header>
@@ -41,7 +41,8 @@
 
 </main>
 <footer>
-    <p>&copy; 2026 André Piros</p>
-</footer>    
+    <p>&copy; <span id="currentyear"></span> André Piros</p>
+    <p>Last Modified: <span id="lastModified"></span></p>
+</footer>  
 </body>
 </html>

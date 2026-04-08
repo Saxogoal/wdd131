@@ -23,26 +23,62 @@
 </head>
 <body>
 <header>
+    <a href="https://saxogoal.github.io/wdd131/project/home.html" class="nav-logo">
+        <img alt="Game Backlog Tracker Logo" src="images/projecticon.png" width="70">
+    </a>
+
     <h1>Home Backlog Tracker</h1>
+
     <nav>
-        <div class="navbar">
-            <a href="https://saxogoal.github.io/wdd131/project/home.html" class="nav-logo">
-                <img alt="Game Backlog Tracker Logo" src="images/projecticon.png">
-            </a>
-            <div class="nav-links">
-                <a href="home.html" class="item-animate">Home</a>
-                <a href="backlog.html" class="item-animate">Backlog Tracker</a>
-                <a href="references.html" class="item-animate">References</a>
-            </div>
+        <div class="nav-links">
+            <a href="home.html" class="item-animate">Home</a>
+            <a href="backlog.html" class="item-animate">Tracker</a>
+            <a href="references.html" class="item-animate">References</a>
         </div>
     </nav>
 </header>
-<body>
-<main>
 
+<main>
+    <section class="hero">
+        <h2>Level Up Your Library</h2>
+        <p>Welcome to the <strong>Game Backlog Tracker</strong>. We help you transition from "too many games" to "just the right one." Stop scrolling and start playing.</p>
+        <a href="backlog.html" class="cta-button">Start My Tracker</a>
+    </section>
+
+    <div class="grid-container">
+        <section class="card">
+            <h3>What is a Backlog?</h3>
+            <p>In the gaming world, a "backlog" is a collection of games you own but haven't finished—or sometimes haven't even started. Whether it's from a Steam sale or a subscription service, these games pile up, waiting for their turn in the spotlight.</p>
+        </section>
+
+        <section class="card">
+            <h3>Why Manage It?</h3>
+            <p>Managing your backlog reduces "decision paralysis." Instead of spending your limited free time staring at a list of 100 titles, a tracker helps you focus on what actually excites you right now, saving you time and mental energy.</p>
+        </section>
+
+        <section class="card">
+            <h3>Deciding What's Next</h3>
+            <ul class="accent-list">
+                <li><strong>Follow the Mood:</strong> Don't play a 100-hour RPG if you're tired; pick an indie "palate cleanser" instead.</li>
+                <li><strong>Check the Time:</strong> Use sites like <em>HowLongToBeat</em> to match a game to your schedule.</li>
+                <li><strong>The Rule of Three:</strong> Keep only three games active: one big, one small, and one endless (like a sports or sim game).</li>
+            </ul>
+        </section>
+
+        <section class="card instruction">
+            <h3>How to Use This Site</h3>
+            <ol>
+                <li>Head over to the <strong>Tracker</strong> page.</li>
+                <li>Enter your game's details in the form.</li>
+                <li>Update the status as you progress (Planned, Playing, or Completed).</li>
+                <li>Your list is saved automatically for your next session!</li>
+            </ol>
+        </section>
+    </div>
 </main>
 <footer>
-    <p>&copy; 2026 André Piros</p>
+    <p>&copy; <span id="currentyear"></span> André Piros</p>
+    <p>Last Modified: <span id="lastModified"></span></p>
 </footer>
 </body>
 </html>
