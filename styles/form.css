@@ -67,7 +67,6 @@ main {
     padding: .75rem;
     width: 100%;
     max-width: 400px;
-    appearance: none;
 }
 .wf1 input[type="radio"],
 .wf1 input[type="checkbox"] {
