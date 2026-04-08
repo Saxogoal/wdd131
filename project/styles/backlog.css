@@ -1,0 +1,17 @@
+html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+
+* {
+    margin: 0;
+    padding: 0;
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+:root {
+    --heading-text: "Orbitron", sans-serif;
+    --body-text: "Roboto", sans-serif;
+    --background-color: #0f172a;
+    --surface-color: #1e293b;
+    --primary-accent: #22c55e;
+    --secondary-accent: #3b82f6;
+    --text-color: #e2e8f0;
+    --muted-text: #94a3b8;
+}
