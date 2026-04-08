@@ -60,6 +60,9 @@ nav {
     margin-left: 1.5rem;
     font-weight: 500;
 }
+.nav-links a:hover {
+    color: var(--primary-accent);
+}
 
 main {
     max-width: 1000px;
