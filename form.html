@@ -31,40 +31,48 @@
 <main>
     <form method="get" action="review.html" class="wf1">
         <fieldset>
-            <div>Product Name</div>
-            <label></label><select id="productName" name="productName" required>
-                <option value="" disabled selected> Choose a Product ...</option>
+
+            <label for="productName">Product Name</label>
+            <select id="productName" name="productName" required>
+                <option value="" disabled selected>Choose a Product ...</option>
             </select>
 
             <div>Overall Rating</div>
-            <label><input type="radio" id="rating1" name="rating" value="1" required> &#9734;</label>
-            <label><input type="radio" id="rating2" name="rating" value="2" required> &#9734;&#9734;</label>
-            <label><input type="radio" id="rating3" name="rating" value="3" required> &#9734;&#9734;&#9734;</label>
-            <label><input type="radio" id="rating4" name="rating" value="4" required> &#9734;&#9734;&#9734;&#9734;</label>
-            <label><input type="radio" id="rating5" name="rating" value="5" required> &#9734;&#9734;&#9734;&#9734;&#9734;</label>
+            <div class="rating-group">
+                <label for="rating1"><span>&#9734;</span><input type="radio" id="rating1" name="rating" value="1" required></label>
+                <label for="rating2"><span>&#9734;&#9734;</span><input type="radio" id="rating2" name="rating" value="2"></label>
+                <label for="rating3"><span>&#9734;&#9734;&#9734;</span><input type="radio" id="rating3" name="rating" value="3"></label>
+                <label for="rating4"><span>&#9734;&#9734;&#9734;&#9734;</span><input type="radio" id="rating4" name="rating" value="4"></label>
+                <label for="rating5"><span>&#9734;&#9734;&#9734;&#9734;&#9734;</span><input type="radio" id="rating5" name="rating" value="5"></label>
+            </div>
 
             <label for="date">Date of Installation</label>
             <input type="date" id="date" name="date" required>
 
             <div>Which features did you find useful in the product?</div>
             <p>(Check all that apply)</p>
-            <label><input type="checkbox" id="feature1" name="Durability" value="yes"> Durability</label>
-            <label><input type="checkbox" id="feature2" name="Ease of Use" value="yes"> Ease of Use</label>
-            <label><input type="checkbox" id="feature3" name="Performance" value="yes"> Performance</label>
-            <label><input type="checkbox" id="feature4" name="Design" value="yes"> Design</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="features" value="Durability"> Durability</label>
+                <label><input type="checkbox" name="features" value="Ease of Use"> Ease of Use</label>
+                <label><input type="checkbox" name="features" value="Performance"> Performance</label>
+                <label><input type="checkbox" name="features" value="Design"> Design</label>
+            </div>
 
-            <div>Written Review<span id="optional"></span></div>
-            <label><input type="text" textarea id="review" name="review"></label>
+            <label for="review">Written Review<span class="optional"> (Optional)</span></label>
+            <textarea id="review" name="review"></textarea>
 
-            <div>Your Name<span id="optional"></span></div>
-            <label><input type="text" id="username" name="username"></label>
+            <label for="username">Your Name<span class="optional"> (Optional)</span></label>
+            <input type="text" id="username" name="username">
 
             <input type="submit" value="Submit My Review">
         </fieldset>
     </form>
 </main>
+
 <footer>
     <p>&copy; 🏀 <span id="currentyear"></span> André Piros 🏀 São Paulo, Brazil</p>
     <p id="lastModified"></p>
+</footer>
+
 </body>
 </html>
