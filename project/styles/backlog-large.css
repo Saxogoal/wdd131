@@ -12,11 +12,9 @@
     }
 
     .grid-container {
-        /* This forces exactly 2 columns for the 2x2 look */
         grid-template-columns: 1fr 1fr;
     }
 
-    /* main stays centered and limited, header/footer stay full width */
     main {
         max-width: 1000px;
         margin-left: auto;
