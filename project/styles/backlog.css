@@ -329,7 +329,9 @@ main {
     border-radius: 20px;
     font-weight: bold;
 }
-
+span {
+    color: var(--text-color);
+}
 .status-planned {
     background-color: #334155;
     color: var(--text-color);
@@ -337,7 +339,7 @@ main {
 
 .status-playing {
     background-color: rgba(34, 211, 238, 0.2);
-    color: var(--secondary-accent);
+    color: var(--text-color);
 }
 
 .status-completed {
@@ -375,8 +377,8 @@ main {
 }
 
 .btn-delete {
-    background-color: #ef4444;
-    color: white;
+    background-color: #a70909;
+    color: #ffffff;
 }
 
 /* Filter controls */
