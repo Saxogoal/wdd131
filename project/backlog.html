@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Track your game achievements and hours played.">
+    <meta name="description" content="The core functional tool, featuring a form to add games (title, genre, platform, and status), a dynamic list of saved games, and filter/sort controls organized by status or genre.">
     <meta name="author" content="André Piros">
     <title>WDD 131 | Backlog Tracker</title>
 
@@ -42,19 +42,16 @@
 <main>
     <section class="hero">
         <h2>Track Your Progress</h2>
-        <p>Log your hours and achievements for each game in your backlog.</p>
+        <p>Log your games, track your hours, and manage your backlog.</p>
     </section>
 
-    <div class="grid-container">
-        <section class="card">
-            <h3>Your Info</h3>
+    <!-- Add Game Form -->
+    <section class="card" id="addGameSection">
+        <h3>Add a Game</h3>
+        <div class="form-grid">
             <div class="form-group">
-                <label for="username">Your Name</label>
-                <input type="text" id="username" placeholder="Enter your name" required>
-            </div>
-            <div class="form-group">
-                <label for="gameSelect">Select a Game</label>
-                <select id="gameSelect" required>
+                <label for="gameTitle">Game Title</label>
+                <select id="gameTitle" required>
                     <option value="" disabled selected>Choose a game...</option>
                     <option value="Hollow Knight">Hollow Knight</option>
                     <option value="Halo 4">Halo 4</option>
@@ -64,28 +61,88 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="hoursPlayed">Hours Played</label>
-                <input type="number" id="hoursPlayed" placeholder="e.g. 42" min="0" required>
+                <label for="gameGenre">Genre</label>
+                <select id="gameGenre" required>
+                    <option value="" disabled selected>Select genre...</option>
+                    <option value="Action">Action</option>
+                    <option value="RPG">RPG</option>
+                    <option value="Simulation">Simulation</option>
+                    <option value="Platformer">Platformer</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Strategy">Strategy</option>
+                </select>
             </div>
-        </section>
-
-        <section class="card">
-            <h3>Log an Achievement</h3>
-            <p id="achievementHint" class="hint">Select a game first to see available achievements.</p>
             <div class="form-group">
-                <label for="achievementInput">Achievement Name</label>
-                <input type="text" id="achievementInput" placeholder="Type achievement name..." list="achievementSuggestions" disabled>
-                <datalist id="achievementSuggestions"></datalist>
+                <label for="gamePlatform">Platform</label>
+                <select id="gamePlatform" required>
+                    <option value="" disabled selected>Select platform...</option>
+                    <option value="PC">PC</option>
+                    <option value="PlayStation">PlayStation</option>
+                    <option value="Xbox">Xbox</option>
+                    <option value="Nintendo Switch">Nintendo Switch</option>
+                    <option value="Mobile">Mobile</option>
+                </select>
             </div>
-            <button id="addAchievementBtn" class="cta-button" disabled>Add Achievement</button>
-        </section>
-    </div>
+            <div class="form-group">
+                <label for="gameStatus">Status</label>
+                <select id="gameStatus" required>
+                    <option value="" disabled selected>Select status...</option>
+                    <option value="Planned">Planned</option>
+                    <option value="Playing">Playing</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="hoursPlayed">Hours Played</label>
+                <input type="number" id="hoursPlayed" placeholder="e.g. 42" min="0">
+            </div>
+        </div>
+        <button id="addGameBtn" class="cta-button">Add to Backlog</button>
+    </section>
 
-    <section class="card" id="summaryCard" style="margin-top: 2rem; display: none;">
-        <h3 id="summaryTitle">Progress Summary</h3>
-        <p id="summaryText"></p>
-        <ul id="achievementList" class="accent-list"></ul>
-        <button id="saveBtn" class="cta-button" style="margin-top: 1rem;">Save Progress</button>
+    <!-- Achievement Tracker -->
+    <section class="card" id="achievementSection" style="margin-top: 2rem; display: none;">
+        <h3>Log Achievements — <span id="achievementGameName"></span></h3>
+        <p id="achievementHint" class="hint">Type an achievement name to log it.</p>
+        <div class="form-group">
+            <label for="achievementInput">Achievement Name</label>
+            <div class="autocomplete-wrapper">
+                <input type="text" id="achievementInput" placeholder="Type achievement name...">
+                <ul class="autocomplete-list" id="autocompleteList"></ul>
+            </div>
+        </div>
+        <button id="addAchievementBtn" class="cta-button">Add Achievement</button>
+        <div id="achievementProgress" style="margin-top: 1rem;"></div>
+        <ul id="achievementList" class="accent-list" style="margin-top: 1rem;"></ul>
+    </section>
+
+    <!-- Filter Controls -->
+    <section class="card" id="filterSection" style="margin-top: 2rem;">
+        <h3>My Backlog</h3>
+        <div class="filter-controls">
+            <div class="form-group">
+                <label for="filterStatus">Filter by Status</label>
+                <select id="filterStatus">
+                    <option value="all">All</option>
+                    <option value="Planned">Planned</option>
+                    <option value="Playing">Playing</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="filterGenre">Filter by Genre</label>
+                <select id="filterGenre">
+                    <option value="all">All</option>
+                    <option value="Action">Action</option>
+                    <option value="RPG">RPG</option>
+                    <option value="Simulation">Simulation</option>
+                    <option value="Platformer">Platformer</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Strategy">Strategy</option>
+                </select>
+            </div>
+        </div>
+        <div id="gameList" class="game-list"></div>
     </section>
 </main>
 
