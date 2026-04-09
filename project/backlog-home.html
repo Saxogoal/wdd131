@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         media="print"
         onload="this.media='all'">
     <noscript>
@@ -23,19 +23,20 @@
 </head>
 <body>
 <header>
-    <a href="backlog-home.html" class="nav-logo" aria-label="Game Backlog Tracker Home">
-        <img alt="Game Backlog Tracker Logo" src="images/projecticon.webp" width="70" height="70" loading="lazy">
-    </a>
-
-    <h1>Backlog Tracker</h1>
-
-    <nav aria-label="Main menu">
-        <div class="nav-links">
-            <a href="backlog-home.html">Home</a>
-            <a href="backlog.html">Tracker</a>
-            <a href="references.html">References</a>
-        </div>
-    </nav>
+    <div class="header-top">
+        <a href="backlog-home.html" class="nav-logo" aria-label="Game Backlog Tracker Home">
+            <img alt="Game Backlog Tracker Logo" src="images/projecticon.webp" width="70" height="70" loading="lazy">
+        </a>
+        <h1>Backlog Tracker</h1>
+        <nav aria-label="Main menu">
+            <button id="menu" aria-label="Menu"></button>
+        </nav>
+    </div>
+    <div class="nav-links">
+        <a href="backlog-home.html">Home</a>
+        <a href="backlog.html">Tracker</a>
+        <a href="references.html">References</a>
+    </div>
 </header>
 
 <main>
