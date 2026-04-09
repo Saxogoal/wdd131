@@ -2,7 +2,7 @@
 const menu = document.querySelector("#menu");
 const navigation = document.querySelector(".nav-links");
 
-// Game Achievements 
+// Game Achievements
 const gameAchievements = [
     {
         name: "Hollow Knight",
@@ -11,7 +11,7 @@ const gameAchievements = [
             {title: "Enchanted", gamerScore: 10},
             {title: "Blessed", gamerScore: 15},
             {title: "Protected", gamerScore: 5},
-            {title: "Masked", gamerScore: 15},   
+            {title: "Masked", gamerScore: 15},
             {title: "Soulful", gamerScore: 5},
             {title: "Worldsoul", gamerScore: 15},
             {title: "Falsehood", gamerScore: 5},
@@ -69,7 +69,7 @@ const gameAchievements = [
             {title: "Focus", gamerScore: 10},
             {title: "Soul & Shade", gamerScore: 10},
             {title: "Embrace the Void", gamerScore: 50},
-            {title: "Pure Completion", gamerScore: 70}   
+            {title: "Pure Completion", gamerScore: 70}
         ]
     },
     {
@@ -228,24 +228,139 @@ const gameAchievements = [
     }
 ];
 
-// 1. Populate Product Name Select
-const select = document.querySelector("#productName");
+// State
+let unlockedAchievements = [];
+let currentGame = null;
 
-if (select) {
-    products.forEach(product => {
-        const option = document.createElement("option");
-        option.value = product.id; // Requirement: id is the value
-        option.textContent = product.name; // Requirement: name is the display
-        select.appendChild(option);
+// Elements
+const gameSelect = document.querySelector("#gameSelect");
+const achievementInput = document.querySelector("#achievementInput");
+const achievementSuggestions = document.querySelector("#achievementSuggestions");
+const addAchievementBtn = document.querySelector("#addAchievementBtn");
+const summaryCard = document.querySelector("#summaryCard");
+const summaryTitle = document.querySelector("#summaryTitle");
+const summaryText = document.querySelector("#summaryText");
+const achievementList = document.querySelector("#achievementList");
+const saveBtn = document.querySelector("#saveBtn");
+
+// Load saved data from localStorage
+function loadSaved() {
+    const saved = localStorage.getItem("backlogData");
+    if (saved) {
+        const data = JSON.parse(saved);
+        document.querySelector("#username").value = data.username || "";
+        document.querySelector("#hoursPlayed").value = data.hoursPlayed || "";
+        if (data.game) {
+            gameSelect.value = data.game;
+            gameSelect.dispatchEvent(new Event("change"));
+        }
+        if (data.achievements) {
+            unlockedAchievements = data.achievements;
+            updateSummary();
+        }
+    }
+}
+
+// When game is selected populate datalist and enable input
+gameSelect.addEventListener("change", () => {
+    const selectedName = gameSelect.value;
+    currentGame = gameAchievements.find(g => g.name === selectedName);
+    unlockedAchievements = [];
+
+    if (currentGame) {
+        // Populate datalist suggestions
+        achievementSuggestions.innerHTML = "";
+        currentGame.achievements.forEach(ach => {
+            const option = document.createElement("option");
+            option.value = ach.title;
+            achievementSuggestions.appendChild(option);
+        });
+
+        achievementInput.disabled = false;
+        addAchievementBtn.disabled = false;
+        document.querySelector("#achievementHint").textContent = `Type an achievement name for ${currentGame.name}.`;
+        updateSummary();
+    }
+});
+
+// Add achievement button
+addAchievementBtn.addEventListener("click", () => {
+    const input = achievementInput.value.trim();
+    if (!input || !currentGame) return;
+
+    // Check if achievement exists in the game
+    const found = currentGame.achievements.find(
+        ach => ach.title.toLowerCase() === input.toLowerCase()
+    );
+
+    if (!found) {
+        alert(`"${input}" is not a valid achievement for ${currentGame.name}.`);
+        return;
+    }
+
+    // Check if already added
+    if (unlockedAchievements.includes(found.title)) {
+        alert(`"${found.title}" has already been added.`);
+        return;
+    }
+
+    unlockedAchievements.push(found.title);
+    achievementInput.value = "";
+    updateSummary();
+});
+
+// Update the summary card
+function updateSummary() {
+    if (!currentGame) return;
+
+    const username = document.querySelector("#username").value || "Player";
+    const hours = document.querySelector("#hoursPlayed").value || "0";
+    const total = currentGame.achievements.length;
+    const completed = unlockedAchievements.length;
+
+    // Calculate gamerscores
+    const totalGamerScore = currentGame.achievements.reduce((sum, ach) => sum + ach.gamerScore, 0);
+    const earnedGamerScore = currentGame.achievements
+        .filter(ach => unlockedAchievements.includes(ach.title))
+        .reduce((sum, ach) => sum + ach.gamerScore, 0);
+
+    summaryCard.style.display = "block";
+    summaryTitle.textContent = `${username}'s Progress — ${currentGame.name}`;
+    summaryText.textContent = `Hours Played: ${hours} | Achievements: ${completed}/${total} | Score: ${earnedGamerScore}/${totalGamerScore}G`;
+
+    achievementList.innerHTML = "";
+    unlockedAchievements.forEach(title => {
+        const li = document.createElement("li");
+        li.textContent = `✅ ${title}`;
+        achievementList.appendChild(li);
     });
 }
 
+// Save to localStorage
+saveBtn.addEventListener("click", () => {
+    const data = {
+        username: document.querySelector("#username").value,
+        hoursPlayed: document.querySelector("#hoursPlayed").value,
+        game: gameSelect.value,
+        achievements: unlockedAchievements
+    };
+    localStorage.setItem("backlogData", JSON.stringify(data));
+    alert("Progress saved!");
+});
+
+// Update summary when name or hours change
+document.querySelector("#username").addEventListener("input", updateSummary);
+document.querySelector("#hoursPlayed").addEventListener("input", updateSummary);
+
+// Hamburger menu
 menu.addEventListener("click", () => {
     navigation.classList.toggle("open");
     menu.classList.toggle("open");
 });
 
-
 // Footer
 document.getElementById("currentyear").textContent = new Date().getFullYear();
 document.getElementById("lastModified").textContent = document.lastModified;
+
+// Load saved on page load
+loadSaved();

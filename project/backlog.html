@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The core functional tool, featuring a form to add games (title, genre, platform, and status), a dynamic list of saved games, and filter/sort controls organized by status or genre.">
+    <meta name="description" content="Track your game achievements and hours played.">
     <meta name="author" content="André Piros">
     <title>WDD 131 | Backlog Tracker</title>
 
@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         media="print"
         onload="this.media='all'">
     <noscript>
@@ -38,12 +38,60 @@
         <a href="references.html">References</a>
     </div>
 </header>
-<main>
 
+<main>
+    <section class="hero">
+        <h2>Track Your Progress</h2>
+        <p>Log your hours and achievements for each game in your backlog.</p>
+    </section>
+
+    <div class="grid-container">
+        <section class="card">
+            <h3>Your Info</h3>
+            <div class="form-group">
+                <label for="username">Your Name</label>
+                <input type="text" id="username" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="gameSelect">Select a Game</label>
+                <select id="gameSelect" required>
+                    <option value="" disabled selected>Choose a game...</option>
+                    <option value="Hollow Knight">Hollow Knight</option>
+                    <option value="Halo 4">Halo 4</option>
+                    <option value="Stardew Valley">Stardew Valley</option>
+                    <option value="Castle Crashers">Castle Crashers</option>
+                    <option value="Hades">Hades</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="hoursPlayed">Hours Played</label>
+                <input type="number" id="hoursPlayed" placeholder="e.g. 42" min="0" required>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>Log an Achievement</h3>
+            <p id="achievementHint" class="hint">Select a game first to see available achievements.</p>
+            <div class="form-group">
+                <label for="achievementInput">Achievement Name</label>
+                <input type="text" id="achievementInput" placeholder="Type achievement name..." list="achievementSuggestions" disabled>
+                <datalist id="achievementSuggestions"></datalist>
+            </div>
+            <button id="addAchievementBtn" class="cta-button" disabled>Add Achievement</button>
+        </section>
+    </div>
+
+    <section class="card" id="summaryCard" style="margin-top: 2rem; display: none;">
+        <h3 id="summaryTitle">Progress Summary</h3>
+        <p id="summaryText"></p>
+        <ul id="achievementList" class="accent-list"></ul>
+        <button id="saveBtn" class="cta-button" style="margin-top: 1rem;">Save Progress</button>
+    </section>
 </main>
+
 <footer>
     <p>&copy; <span id="currentyear"></span> André Piros</p>
     <p>Last Modified: <span id="lastModified"></span></p>
-</footer>  
+</footer>
 </body>
 </html>
