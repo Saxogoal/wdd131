@@ -174,7 +174,9 @@ main {
     list-style-type: none;
     padding-left: 0;
 }
-
+.accent-list a{
+    color: var(--primary-accent);
+}
 .accent-list li {
     position: relative;
     padding-left: 1.5rem;
