@@ -1,26 +1,18 @@
-let achievementsLoaded = false;
-
-async function loadAchievements() {
-    if (achievementsLoaded) return;
-    try {
-        const response = await fetch("data/achievements.json");
-        gameAchievements = await response.json();
-        achievementsLoaded = true;
-    } catch (error) {
-        console.error("Error loading achievements:", error);
-    }
-}
 // Hamburger menu
 const menu = document.querySelector("#menu");
 const navigation = document.querySelector(".nav-links");
 
-// ✅ Load achievements from JSON
+// ✅ Achievements data
 let gameAchievements = [];
+let achievementsLoaded = false;
 
 async function loadAchievements() {
+    if (achievementsLoaded) return;
+
     try {
         const response = await fetch("data/achievements.json");
         gameAchievements = await response.json();
+        achievementsLoaded = true;
     } catch (error) {
         console.error("Error loading achievements:", error);
     }
@@ -44,41 +36,43 @@ const achievementProgress = document.querySelector("#achievementProgress");
 const achievementList = document.querySelector("#achievementList");
 
 // Add game
-addGameBtn.addEventListener("click", () => {
-    const title = document.querySelector("#gameTitle").value;
-    const genre = document.querySelector("#gameGenre").value;
-    const platform = document.querySelector("#gamePlatform").value;
-    const status = document.querySelector("#gameStatus").value;
-    const hours = document.querySelector("#hoursPlayed").value || 0;
+if (addGameBtn) {
+    addGameBtn.addEventListener("click", () => {
+        const title = document.querySelector("#gameTitle").value;
+        const genre = document.querySelector("#gameGenre").value;
+        const platform = document.querySelector("#gamePlatform").value;
+        const status = document.querySelector("#gameStatus").value;
+        const hours = document.querySelector("#hoursPlayed").value || 0;
 
-    if (!title || !genre || !platform || !status) {
-        alert("Please fill in all fields.");
-        return;
-    }
+        if (!title || !genre || !platform || !status) {
+            alert("Please fill in all fields.");
+            return;
+        }
 
-    if (backlog.find(g => g.title === title)) {
-        alert(`${title} is already in your backlog.`);
-        return;
-    }
+        if (backlog.find(g => g.title === title)) {
+            alert(`${title} is already in your backlog.`);
+            return;
+        }
 
-    backlog.push({
-        title,
-        genre,
-        platform,
-        status,
-        hours: Number(hours),
-        achievements: []
+        backlog.push({
+            title,
+            genre,
+            platform,
+            status,
+            hours: Number(hours),
+            achievements: []
+        });
+
+        saveBacklog();
+        renderGameList();
+
+        document.querySelector("#gameTitle").value = "";
+        document.querySelector("#gameGenre").value = "";
+        document.querySelector("#gamePlatform").value = "";
+        document.querySelector("#gameStatus").value = "";
+        document.querySelector("#hoursPlayed").value = "";
     });
-
-    saveBacklog();
-    renderGameList();
-
-    document.querySelector("#gameTitle").value = "";
-    document.querySelector("#gameGenre").value = "";
-    document.querySelector("#gamePlatform").value = "";
-    document.querySelector("#gameStatus").value = "";
-    document.querySelector("#hoursPlayed").value = "";
-});
+}
 
 // Save
 function saveBacklog() {
@@ -87,8 +81,10 @@ function saveBacklog() {
 
 // Render list
 function renderGameList() {
-    const statusFilter = filterStatus.value;
-    const genreFilter = filterGenre.value;
+    if (!gameList) return;
+
+    const statusFilter = filterStatus ? filterStatus.value : "all";
+    const genreFilter = filterGenre ? filterGenre.value : "all";
 
     const filtered = backlog.filter(game =>
         (statusFilter === "all" || game.status === statusFilter) &&
@@ -127,12 +123,11 @@ function renderGameList() {
         gameList.appendChild(card);
     });
 
-    // Track achievements (LAZY LOAD here)
+    // Track achievements
     document.querySelectorAll(".btn-track").forEach(btn => {
         btn.addEventListener("click", async () => {
             activeGameIndex = Number(btn.dataset.index);
 
-            // ✅ Load JSON only when needed
             if (gameAchievements.length === 0) {
                 await loadAchievements();
             }
@@ -147,7 +142,7 @@ function renderGameList() {
             const index = Number(btn.dataset.index);
             backlog.splice(index, 1);
 
-            if (activeGameIndex === index) {
+            if (activeGameIndex === index && achievementSection) {
                 achievementSection.style.display = "none";
                 activeGameIndex = null;
             }
@@ -160,13 +155,17 @@ function renderGameList() {
 
 // Open tracker
 function openAchievementTracker() {
+    if (!achievementSection) return;
+
     const game = backlog[activeGameIndex];
 
     achievementSection.style.display = "block";
-    achievementGameName.textContent = game.title;
-    achievementInput.value = "";
-    autocompleteList.innerHTML = "";
-    autocompleteList.classList.remove("open");
+    if (achievementGameName) achievementGameName.textContent = game.title;
+    if (achievementInput) achievementInput.value = "";
+    if (autocompleteList) {
+        autocompleteList.innerHTML = "";
+        autocompleteList.classList.remove("open");
+    }
 
     updateAchievementDisplay();
     achievementSection.scrollIntoView({ behavior: "smooth" });
@@ -174,6 +173,8 @@ function openAchievementTracker() {
 
 // Update achievements
 function updateAchievementDisplay() {
+    if (!achievementProgress || !achievementList) return;
+
     const game = backlog[activeGameIndex];
     const gameData = gameAchievements.find(g => g.name === game.title);
     if (!gameData) return;
@@ -195,97 +196,106 @@ function updateAchievementDisplay() {
 }
 
 // Autocomplete
-achievementInput.addEventListener("input", () => {
-    if (activeGameIndex === null) return;
+if (achievementInput) {
+    achievementInput.addEventListener("input", () => {
+        if (activeGameIndex === null) return;
 
-    const game = backlog[activeGameIndex];
-    const gameData = gameAchievements.find(g => g.name === game.title);
-    const query = achievementInput.value.toLowerCase().trim();
+        const game = backlog[activeGameIndex];
+        const gameData = gameAchievements.find(g => g.name === game.title);
+        const query = achievementInput.value.toLowerCase().trim();
 
-    autocompleteList.innerHTML = "";
+        autocompleteList.innerHTML = "";
 
-    if (!query || !gameData) {
-        autocompleteList.classList.remove("open");
-        return;
-    }
-
-    const matches = gameData.achievements.filter(ach =>
-        ach.title.toLowerCase().includes(query) &&
-        !game.achievements.includes(ach.title)
-    );
-
-    if (matches.length === 0) {
-        autocompleteList.classList.remove("open");
-        return;
-    }
-
-    matches.forEach(ach => {
-        const li = document.createElement("li");
-        li.textContent = ach.title;
-
-        li.addEventListener("click", () => {
-            achievementInput.value = ach.title;
+        if (!query || !gameData) {
             autocompleteList.classList.remove("open");
+            return;
+        }
+
+        const matches = gameData.achievements.filter(ach =>
+            ach.title.toLowerCase().includes(query) &&
+            !game.achievements.includes(ach.title)
+        );
+
+        if (matches.length === 0) {
+            autocompleteList.classList.remove("open");
+            return;
+        }
+
+        matches.forEach(ach => {
+            const li = document.createElement("li");
+            li.textContent = ach.title;
+
+            li.addEventListener("click", () => {
+                achievementInput.value = ach.title;
+                autocompleteList.classList.remove("open");
+            });
+
+            autocompleteList.appendChild(li);
         });
 
-        autocompleteList.appendChild(li);
+        autocompleteList.classList.add("open");
     });
-
-    autocompleteList.classList.add("open");
-});
+}
 
 // Close autocomplete
 document.addEventListener("click", (e) => {
-    if (!e.target.closest(".autocomplete-wrapper")) {
+    if (autocompleteList && !e.target.closest(".autocomplete-wrapper")) {
         autocompleteList.classList.remove("open");
     }
 });
 
 // Add achievement
-addAchievementBtn.addEventListener("click", () => {
-    if (activeGameIndex === null) return;
+if (addAchievementBtn) {
+    addAchievementBtn.addEventListener("click", () => {
+        if (activeGameIndex === null) return;
 
-    const game = backlog[activeGameIndex];
-    const gameData = gameAchievements.find(g => g.name === game.title);
-    const input = achievementInput.value.trim();
+        const game = backlog[activeGameIndex];
+        const gameData = gameAchievements.find(g => g.name === game.title);
+        const input = achievementInput.value.trim();
 
-    if (!input) return;
+        if (!input) return;
 
-    const found = gameData.achievements.find(
-        a => a.title.toLowerCase() === input.toLowerCase()
-    );
+        const found = gameData.achievements.find(
+            a => a.title.toLowerCase() === input.toLowerCase()
+        );
 
-    if (!found) {
-        alert(`"${input}" is not valid.`);
-        return;
-    }
+        if (!found) {
+            alert(`"${input}" is not valid.`);
+            return;
+        }
 
-    if (game.achievements.includes(found.title)) {
-        alert("Already added.");
-        return;
-    }
+        if (game.achievements.includes(found.title)) {
+            alert("Already added.");
+            return;
+        }
 
-    game.achievements.push(found.title);
+        game.achievements.push(found.title);
 
-    achievementInput.value = "";
-    saveBacklog();
-    updateAchievementDisplay();
-    renderGameList();
-});
+        achievementInput.value = "";
+        saveBacklog();
+        updateAchievementDisplay();
+        renderGameList();
+    });
+}
 
 // Filters
-filterStatus.addEventListener("change", renderGameList);
-filterGenre.addEventListener("change", renderGameList);
+if (filterStatus) filterStatus.addEventListener("change", renderGameList);
+if (filterGenre) filterGenre.addEventListener("change", renderGameList);
 
 // Menu
-menu.addEventListener("click", () => {
-    navigation.classList.toggle("open");
-    menu.classList.toggle("open");
-});
+if (menu) {
+    menu.addEventListener("click", () => {
+        navigation.classList.toggle("open");
+        menu.classList.toggle("open");
+    });
+}
 
 // Footer
-document.getElementById("currentyear").textContent = new Date().getFullYear();
-document.getElementById("lastModified").textContent = document.lastModified;
+const year = document.getElementById("currentyear");
+const modified = document.getElementById("lastModified");
+
+if (year) year.textContent = new Date().getFullYear();
+if (modified) modified.textContent = document.lastModified;
 
 // Initial render
 renderGameList();
